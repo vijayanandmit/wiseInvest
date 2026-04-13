@@ -15,19 +15,73 @@ python3 -m pip install --user ib_insync
 Exact command to run next time:
 
 ```bash
-python3 /data/560054484/gitclones/IBKR/list_positions.py
+python3 /data/560054484/gitclones/wiseInvest/list_positions.py
 ```
 
 Optional account filter:
 
 ```bash
-python3 /data/560054484/gitclones/IBKR/list_positions.py --account DU2540043
+python3 /data/560054484/gitclones/wiseInvest/list_positions.py --account DU2540043
 ```
 
 Optional custom host/ports:
 
 ```bash
-python3 /data/560054484/gitclones/IBKR/list_positions.py --host 127.0.0.1 --ports 4002,4001,4000,7497,7496
+python3 /data/560054484/gitclones/wiseInvest/list_positions.py --host 127.0.0.1 --ports 4002,4001,4000,7497,7496
+```
+
+## Place Buy Order (GEV Market)
+
+Exact command to execute a market buy for GEV with default 5% stop-loss:
+
+```bash
+python3 /data/560054484/gitclones/wiseInvest/buy_gev_mkt.py 1
+```
+
+Disable stop-loss:
+
+```bash
+python3 /data/560054484/gitclones/wiseInvest/buy_gev_mkt.py 1 --stop-loss-pct 0
+```
+
+Use custom stop-loss percent and stop TIF:
+
+```bash
+python3 /data/560054484/gitclones/wiseInvest/buy_gev_mkt.py 1 --stop-loss-pct 3 --stop-tif GTC
+```
+
+## Place Buy Order (TSLA Market)
+
+Exact command to execute a market buy for TSLA with default 5% stop-loss:
+
+```bash
+python3 /data/560054484/gitclones/wiseInvest/buy_tsla_mkt.py 1
+```
+
+Disable stop-loss:
+
+```bash
+python3 /data/560054484/gitclones/wiseInvest/buy_tsla_mkt.py 1 --stop-loss-pct 0
+```
+
+Use custom stop-loss percent and stop TIF:
+
+```bash
+python3 /data/560054484/gitclones/wiseInvest/buy_tsla_mkt.py 1 --stop-loss-pct 3 --stop-tif GTC
+```
+
+## Place Buy Order (Generic)
+
+Market buy via generic script:
+
+```bash
+python3 /data/560054484/gitclones/wiseInvest/place_buy_order.py --symbol GEV --qty 1 --order-type MKT --account DU2540043
+```
+
+Limit buy example:
+
+```bash
+python3 /data/560054484/gitclones/wiseInvest/place_buy_order.py --symbol GEV --qty 1 --order-type LMT --limit-price 300 --account DU2540043
 ```
 
 ## Place Buy Order (GEV)
